@@ -1,0 +1,19 @@
+.Home {
+  display: flex;
+  justify-content: center;
+  background-image: url("../../background1.png");
+  background-size: cover;
+}
+
+.Home_card {
+  background-color: grey;
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  justify-content: center;
+  align-items: flex-end;
+  align-self: center;
+  margin: 40px;
+  transition: 0.5s;
+  color: white;
+}

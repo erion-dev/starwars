@@ -1,0 +1,41 @@
+.Navbar_main {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+.Navbar_nav {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: #ffff;
+  border: 0.5px solid rgb(84, 83, 83);
+  font-size: 15px;
+  border-bottom: none;
+  background-color: black;
+}
+
+.Navbar_link:link,
+.Navbar_link:visited {
+  background-color: black;
+  color: grey;
+  border-top: 0.5px solid rgb(84, 83, 83);
+  border-bottom: black;
+  border-right: 0.5px solid rgb(84, 83, 83);
+  border-left: 0.5px solid rgb(84, 83, 83);
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  border-style: ridge;
+  text-underline-offset: 8px;
+}
+
+.Navbar_link:hover {
+  text-decoration: underline !important;
+  color: white !important;
+}
+
+.Navbar_link_active {
+  text-decoration: underline !important;
+  color: white !important;
+}
