@@ -1,8 +1,10 @@
 .Home {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   background-image: url("../../background1.png");
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .Home_card {
@@ -16,4 +18,17 @@
   margin: 40px;
   transition: 0.5s;
   color: white;
+  border-radius: 5px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+
+.Home_img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: 3px solid lightcoral;
 }
