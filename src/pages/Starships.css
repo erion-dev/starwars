@@ -1,10 +1,10 @@
-.Home {
+.Starships {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.Home_card {
+.Starship_card {
   background-color: grey;
   display: inline-block;
   position: relative;
@@ -23,22 +23,19 @@
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
-
-.Home_text {
-  text-align: left;
-  padding-left: 10px;
-}
-
-.Home_img {
+.Starships_img {
   width: 300px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom: 3px solid lightcoral;
 }
 
-.Home_loading {
-  justify-content: center;
-  font-size: 50px;
-  color: white;
-  padding-top: 200px;
+.Starships_text {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.Starships_order {
+  padding: 0px;
+  padding-left: 18px;
 }

@@ -18,29 +18,30 @@ function Navbar() {
         >
           Home
         </NavLink>
+
         <NavLink
           className={({ isActive }) =>
             `Navbar_link ${isActive && "Navbar_link_active"}`
           }
-          to="/newsblog"
+          to="/starships"
         >
-          News+Blog
+          Starships
         </NavLink>
         <NavLink
           className={({ isActive }) =>
             `Navbar_link ${isActive && "Navbar_link_active"}`
           }
-          to="/series"
+          to="/character"
         >
-          Series
+          Character
         </NavLink>
         <NavLink
           className={({ isActive }) =>
             `Navbar_link ${isActive && "Navbar_link_active"}`
           }
-          to="/community"
+          to="/planets"
         >
-          Community
+          Planets
         </NavLink>
       </nav>
     </div>

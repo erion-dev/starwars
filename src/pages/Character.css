@@ -1,10 +1,10 @@
-.Home {
+.Characters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.Home_card {
+.Characters_cards {
   background-color: grey;
   display: inline-block;
   position: relative;
@@ -24,21 +24,26 @@
   -webkit-box-orient: vertical;
 }
 
-.Home_text {
+.Characters_id {
   text-align: left;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
-.Home_img {
+.Characters_img {
   width: 300px;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom: 3px solid lightcoral;
 }
 
-.Home_loading {
+.Character_loading {
   justify-content: center;
   font-size: 50px;
   color: white;
   padding-top: 200px;
+}
+
+.Character_order {
+  padding: 0px;
+  padding-left: 18px;
 }

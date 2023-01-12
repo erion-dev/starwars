@@ -1,63 +1,44 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Home.css";
 
 export default function Home() {
+  const [films, setFilms] = useState([]);
+  const [error, setError] = useState();
+  const [isloading, setIsloading] = useState(true);
+
+  useEffect(() => {
+    axios
+      .get("https://swapi.dev/api/films/")
+      .then((res) => {
+        setFilms(res.data.results);
+      })
+      .catch((err) => {
+        setError("Error happend try later");
+      })
+      .finally(() => {
+        setIsloading(false);
+      });
+  }, []);
+  if (isloading) return <div className="Home_loading">loading...</div>;
+  if (error) return <div className="Home_error">{error}</div>;
   return (
     <div className="Home">
-      <div className="Home_card">
-        <div className="imgBx">
-          <img
-            className="Home_img"
-            src="http://samuel-garcia.site/img/the-force.png"
-            alt="STAR-WARS-THE-FORCE"
-          />
+      {films?.map((film) => (
+        <div className="Home_card" key={film.episode_id}>
+          <div className="imgBx">
+            <img
+              className="Home_img"
+              src="http://samuel-garcia.site/img/last-jedi.png"
+              alt="Last-Jedi"
+            />
+          </div>
+          <div className="Home_text">
+            <h2>{film.title}</h2>
+            <p>{film.opening_crawl}</p>
+          </div>
         </div>
-        <div className="Home_text">
-          <h2>The Force Awakens</h2>
-          <p>
-            The film was announced after The Walt Disney Company's acquisition
-            of Lucasfilm in October 2012.{" "}
-          </p>
-        </div>
-      </div>
-
-      <div className="Home_card">
-        <div className="imgBx">
-          <img
-            className="Home_img"
-            src="http://samuel-garcia.site/img/last-jedi.png"
-            alt="Last-Jedi"
-          />
-        </div>
-        <div className="Home_text">
-          <h2>The Last Jedi</h2>
-          <p>
-            The Last Jedi premiered in Los Angeles on December 9, 2017 and was
-            released in the United States on December 15.
-          </p>
-        </div>
-      </div>
-      <div className="Home_card">
-        <div className="imgBx">
-          <img
-            className="Home_img"
-            src="http://samuel-garcia.site/img/the-rise.png"
-            alt="STAR-WARS-The-Skywalker"
-          />
-        </div>
-        <div className="Home_text">
-          <h2>The Rise Of Skywalker</h2>
-          <p>
-            The Rise of Skywalker premiered in Los Angeles on December 16, 2019,
-            and was released in the United States on December 20. It received
-            mixed reviews from critics, who praised the acting, action
-            sequences, musical score, and visual effects but criticized the
-            story, pacing and perceived departures from the plot and themes of
-            The Last Jedi.
-          </p>
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
