@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Starships.css";
+import { Card } from "../components/Card/Card";
+import img from "../starship.webp";
 
 function Starships() {
   const [starships, setStarships] = useState([]);
@@ -25,35 +27,22 @@ function Starships() {
   return (
     <div className="Home">
       {starships?.map((starships) => (
-        <div className="Starship_card" key={starships.name}>
-          <div className="imgBx">
-            <img
-              className="Starships_img"
-              src="starship.webp"
-              alt="starships"
-            />
-          </div>
-          <div className="Starship_text">
-            <h2>{starships.name}</h2>
-          </div>
-          <ul className="Starship_order">
-            <li>
-              <strong>Manufacturer:</strong>
-              {starships.manufacturer}
-            </li>
-            <li>
-              <strong>Cargo Capacity:</strong>
-              {starships.cargo_capacity}
-            </li>
-            <li>
-              <strong>Consumables:</strong> {starships.consumables}
-            </li>
-            <li>
-              <strong>Passengers:</strong>
-              {starships.passengers}
-            </li>
-          </ul>
-        </div>
+        <Card
+          img={img}
+          key={starships.name}
+          withList
+          details={[
+            {
+              label: "Manufacturer",
+              value: starships.manufacturer,
+            },
+            {
+              label: "Passengers",
+              value: starships.passengers,
+            },
+          ]}
+          name={starships.name}
+        />
       ))}
     </div>
   );

@@ -1,0 +1,36 @@
+.Card {
+  background-color: grey;
+  display: inline-block;
+  position: relative;
+  width: 300px;
+  justify-content: center;
+  align-items: flex-end;
+  align-self: center;
+  margin: 40px;
+  transition: 0.5s;
+  color: white;
+  border-radius: 5px;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+
+.Card_image {
+  width: 300px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: 3px solid lightcoral;
+}
+
+.Card_text {
+  text-align: left;
+  padding-left: 10px;
+}
+
+.Card_info {
+  padding: 0px;
+  padding-left: 18px;
+}

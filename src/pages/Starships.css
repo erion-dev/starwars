@@ -3,39 +3,3 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
-.Starship_card {
-  background-color: grey;
-  display: inline-block;
-  position: relative;
-  width: 300px;
-  justify-content: center;
-  align-items: flex-end;
-  align-self: center;
-  margin: 40px;
-  transition: 0.5s;
-  color: white;
-  border-radius: 5px;
-  text-align: left;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
-}
-.Starships_img {
-  width: 300px;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom: 3px solid lightcoral;
-}
-
-.Starship_text {
-  text-align: left;
-  padding-left: 10px;
-}
-
-.Starship_order {
-  padding: 0px;
-  padding-left: 28px;
-}
