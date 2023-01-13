@@ -42,6 +42,10 @@
   color: white;
   padding-top: 200px;
 }
+.Character_text {
+  text-align: left;
+  padding-left: 10px;
+}
 
 .Character_order {
   padding: 0px;

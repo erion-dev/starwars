@@ -33,10 +33,10 @@ function Starships() {
               alt="starships"
             />
           </div>
-          <div className="Starships_text">
+          <div className="Starship_text">
             <h2>{starships.name}</h2>
           </div>
-          <ul className="Starships_order">
+          <ul className="Starship_order">
             <li>
               <strong>Manufacturer:</strong>
               {starships.manufacturer}

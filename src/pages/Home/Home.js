@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("https://swapi.dev/api/films/")
+      .get( "https://swapi.dev/api/films/")
       .then((res) => {
         setFilms(res.data.results);
       })
