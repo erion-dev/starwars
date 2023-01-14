@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Character.css";
+import { Card } from "../components/Card/Card";
+import img from "../characters1.jpeg";
 
 function Characters() {
   const [character, setCharacter] = useState([]);
@@ -27,35 +29,22 @@ function Characters() {
   return (
     <div className="Characters">
       {character?.map((character) => (
-        <div className="Characters_cards" key={character.name}>
-          <div className="imgBx">
-            <img
-              className="Characters_img"
-              src="Characters1.jpeg"
-              alt="Characters"
-            />
-          </div>
-          <div className="Characters_id">
-            <h2>{character.name}</h2>
-            <ul className="Character_order">
-              <li>
-                <strong>Height:</strong>
-                {character.height}
-              </li>
-              <li>
-                <strong>Mass:</strong>
-                {character.mass}
-              </li>
-              <li>
-                <strong>Gender:</strong> {character.gender}
-              </li>
-              <li>
-                <strong>Hair Color:</strong>
-                {character.hair_color}
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Card
+          img={img}
+          key={character.name}
+          withList
+          details={[
+            {
+              label: "Height",
+              value: character.height,
+            },
+            {
+              label: "Mass",
+              value: character.mass,
+            },
+          ]}
+          name={character.name}
+        />
       ))}
     </div>
   );

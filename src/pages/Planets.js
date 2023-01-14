@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Planets.css";
+import { Card } from "../components/Card/Card";
+import img from "../planet.jpeg";
 
 function Planets() {
   const [planets, setPlanet] = useState([]);
@@ -25,28 +27,22 @@ function Planets() {
   return (
     <div className="Planet">
       {planets?.map((planets) => (
-        <div className="Planet_card" key={planets.name}>
-          <div className="imgBx">
-            <img className="Planet_img" src="planet.jpeg" alt="planets" />
-          </div>
-          <div className="Planet_text">
-            <h2>{planets.name}</h2>
-            <ul className="Planet_order">
-              <li>
-                <strong>Orbital Period:</strong> {planets.orbital_period}
-              </li>
-              <li>
-                <strong>Population:</strong> {planets.population}
-              </li>
-              <li>
-                <strong>Climate:</strong> {planets.climate}
-              </li>
-              <li>
-                <strong>Terrain:</strong> {planets.terrain}
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Card
+          img={img}
+          key={planets.name}
+          withList
+          details={[
+            {
+              label: "Orbital_period",
+              value: planets.orbital_period,
+            },
+            {
+              label: "Population",
+              value: planets.population,
+            },
+          ]}
+          name={planets.name}
+        />
       ))}
     </div>
   );
