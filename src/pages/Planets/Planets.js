@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Starships.css";
-import { Card } from "../components/Card/Card";
-import img from "../starship.webp";
+import "./Planets.css";
+import { Card } from "../../components/Card/Card";
+import img from "../Planets/planet.jpeg";
 
-function Starships() {
-  const [starships, setStarships] = useState([]);
+function Planets() {
+  const [planets, setPlanet] = useState([]);
   const [error, setError] = useState();
   const [isloading, setIsloading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("https://swapi.dev/api/starships/")
+      .get("https://swapi.dev/api/planets/")
       .then((res) => {
-        setStarships(res.data.results);
+        setPlanet(res.data.results);
       })
       .catch((err) => {
-        setError("Starships are under attack we will be back soon");
+        setError("Planets are under construction");
       })
       .finally(() => {
         setIsloading(false);
@@ -25,27 +25,27 @@ function Starships() {
   if (isloading) return <div className="Home_loading">loading...</div>;
   if (error) return <div className="Home_error">{error}</div>;
   return (
-    <div className="Home">
-      {starships?.map((starships) => (
+    <div className="Planet">
+      {planets?.map((planets) => (
         <Card
           img={img}
-          key={starships.name}
+          key={planets.name}
           withList
           details={[
             {
-              label: "Manufacturer",
-              value: starships.manufacturer,
+              label: "Orbital_period",
+              value: planets.orbital_period,
             },
             {
-              label: "Passengers",
-              value: starships.passengers,
+              label: "Population",
+              value: planets.population,
             },
           ]}
-          name={starships.name}
+          name={planets.name}
         />
       ))}
     </div>
   );
 }
 
-export default Starships;
+export default Planets;

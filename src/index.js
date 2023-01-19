@@ -5,10 +5,11 @@ import reportWebVitals from "./reportWebVitals";
 
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Starships from "./pages/Starships";
-import Character from "./pages/Character";
-import Planets from "./pages/Planets";
+import Starships from "./pages/Starships/Starships";
+import Character from "./pages/Character/Character";
+import Planets from "./pages/Planets/Planets";
 import Home from "./pages/Home/Home";
+import Film from "./pages/Home-card/Film";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
       {
         path: "planets",
         element: <Planets />,
+      },
+
+      {
+        path: "film/:id",
+        element: <Film />,
       },
     ],
   },

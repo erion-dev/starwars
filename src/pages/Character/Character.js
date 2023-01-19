@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Character.css";
-import { Card } from "../components/Card/Card";
-import img from "../characters1.jpeg";
+import { Card } from "../../components/Card/Card";
+import img from "../Character/characters1.jpeg";
 
 function Characters() {
   const [character, setCharacter] = useState([]);

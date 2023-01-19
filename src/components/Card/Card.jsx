@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./Card.css";
 
 export const Card = (props) => {
+  const nav = useNavigate();
   return (
-    <div className="Card">
+    <div className="Card" onClick={() => nav(props.to)}>
       <div>
         <img className="Card_image" src={props.img} alt={props.alt} />
       </div>
