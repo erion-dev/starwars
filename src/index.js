@@ -14,39 +14,39 @@ import Film from "./pages/Home-card/Film";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "starships",
-        element: <Starships />,
-      },
-      {
-        path: "character",
-        element: <Character />,
-      },
-      {
-        path: "planets",
-        element: <Planets />,
-      },
+	{
+		path: "/",
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "starships",
+				element: <Starships />,
+			},
+			{
+				path: "characters",
+				element: <Character />,
+			},
+			{
+				path: "planets",
+				element: <Planets />,
+			},
 
-      {
-        path: "film/:id",
-        element: <Film />,
-      },
-    ],
-  },
+			{
+				path: "film/:id",
+				element: <Film />,
+			},
+		],
+	},
 ]);
 
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
