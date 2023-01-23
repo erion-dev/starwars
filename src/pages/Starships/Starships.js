@@ -1,51 +1,52 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Planets.css";
-import { Card } from "../components/Card/Card";
-import img from "../planet.jpeg";
+import "./Starships.css";
+import { Card } from "../../components/Card/Card";
+import img from "../Starships/starship.webp";
 
-function Planets() {
-  const [planets, setPlanet] = useState([]);
+function Starships() {
+  const [starship, setStarships] = useState([]);
   const [error, setError] = useState();
   const [isloading, setIsloading] = useState(true);
 
   useEffect(() => {
     axios
-      .get("https://swapi.dev/api/planets/")
+      .get("https://swapi.dev/api/starships/")
       .then((res) => {
-        setPlanet(res.data.results);
+        setStarships(res.data.results);
       })
       .catch((err) => {
-        setError("Planets are under construction");
+        setError("Starships are under attack we will be back soon");
       })
       .finally(() => {
         setIsloading(false);
       });
   }, []);
+
   if (isloading) return <div className="Home_loading">loading...</div>;
   if (error) return <div className="Home_error">{error}</div>;
   return (
-    <div className="Planet">
-      {planets?.map((planets) => (
+    <div className="Home">
+      {starship?.map((starship) => (
         <Card
           img={img}
-          key={planets.name}
+          key={starship.name}
           withList
           details={[
             {
-              label: "Orbital_period",
-              value: planets.orbital_period,
+              label: "Manufacturer",
+              value: starship.manufacturer,
             },
             {
-              label: "Population",
-              value: planets.population,
+              label: "Passengers",
+              value: starship.passengers,
             },
           ]}
-          name={planets.name}
+          name={starship.name}
         />
       ))}
     </div>
   );
 }
 
-export default Planets;
+export default Starships;

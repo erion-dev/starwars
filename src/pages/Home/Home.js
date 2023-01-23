@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Home.css";
-import { Card } from "../../components/Card/Card";
 import img from "./starwars11.jpeg";
+
+import { Card } from "../../components/Card/Card";
 
 export default function Home() {
   const [films, setFilms] = useState([]);
@@ -24,10 +25,12 @@ export default function Home() {
   }, []);
   if (isloading) return <div className="Home_loading">loading...</div>;
   if (error) return <div className="Home_error">{error}</div>;
+
   return (
     <div className="Home">
       {films?.map((film) => (
         <Card
+          to={`film/${film.episode_id}`}
           img={img}
           key={film.episode_id}
           title={film.title}
