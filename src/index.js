@@ -10,6 +10,7 @@ import Character from "./pages/Character/Character";
 import Planets from "./pages/Planets/Planets";
 import Home from "./pages/Home/Home";
 import Film from "./pages/Home-card/Film";
+import Login from "./pages/Login";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "film/:id",
         element: <Film />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },

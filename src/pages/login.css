@@ -1,0 +1,60 @@
+.Login {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  background: black;
+  max-width: 400px;
+  min-width: auto;
+  height: 300px;
+  margin-top: 50px;
+}
+.Login_form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Login_username {
+  width: 150px;
+  color: black;
+  font-size: 15px;
+  align-self: center;
+  width: 300px;
+  height: 50px;
+  border: none;
+}
+.Login_password {
+  align-self: center;
+  margin-top: 15px;
+  color: black;
+  font-size: 15px;
+  width: 300px;
+  height: 50px;
+  border: none;
+}
+.Login_button {
+  align-self: center;
+  margin-top: 15px;
+  width: 305px;
+  height: 50px;
+  outline: none;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  transition-duration: 0.4s;
+}
+.Login_button:hover {
+  background-color: rgb(77, 76, 76);
+  color: white;
+}
+
+.Login_link {
+  color: white;
+  padding-left: 150px;
+  text-decoration: none;
+}
+
+.Login_link:hover {
+  color: gray;
+}
