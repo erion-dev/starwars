@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import "./Home.css";
 import img from "./starwars11.jpeg";
-
 import { Card } from "../../components/Card/Card";
+import useFetch from "./useFetch";
 
 export default function Home() {
-  const [films, setFilms] = useState([]);
-  const [error, setError] = useState();
-  const [isloading, setIsloading] = useState(true);
+  const { data, isloading, error } = useFetch("https://swapi.dev/api/films/");
 
-  useEffect(() => {
-    axios
-      .get("https://swapi.dev/api/films/")
-      .then((res) => {
-        setFilms(res.data.results);
-      })
-      .catch((err) => {
-        setError("Error happend try later");
-      })
-      .finally(() => {
-        setIsloading(false);
-      });
-  }, []);
-  if (isloading) return <div className="Home_loading">loading...</div>;
+  if (isloading) return <div className="Character_loading">loading...</div>;
   if (error) return <div className="Home_error">{error}</div>;
 
   return (
     <div className="Home">
-      {films?.map((film) => (
+      {data?.results.map((film) => (
         <Card
           to={`film/${film.episode_id}`}
           img={img}

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { useUserContext } from "../../UserContextProvider";
+import logo from "./starwars.png";
 import "./Navbar.css";
 
 const pages = [
@@ -24,22 +25,34 @@ const pages = [
 ];
 
 function Navbar() {
+	const authContext = useUserContext();
 	return (
 		<div className="Navbar">
 			<div className="Navbar_main">
-				<img src="starwars.png" alt="logo" width="350px" height="150px" />
+				<img src={logo} alt="logo" width="350px" height="150px" />
 			</div>
 			<nav className="Navbar_nav">
-				{pages.map((page) => (
+				{authContext.user.username ? (
+					pages.map((page) => (
+						<NavLink
+							className={({ isActive }) =>
+								`Navbar_link ${isActive && "Navbar_link_active"}`
+							}
+							to={page.to}
+						>
+							{page.label}
+						</NavLink>
+					))
+				) : (
 					<NavLink
 						className={({ isActive }) =>
 							`Navbar_link ${isActive && "Navbar_link_active"}`
 						}
-						to={page.to}
+						to="/login"
 					>
-						{page.label}
+						Login
 					</NavLink>
-				))}
+				)}
 			</nav>
 		</div>
 	);
