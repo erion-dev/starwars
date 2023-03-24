@@ -6,6 +6,7 @@ import useFetch from "./useFetch";
 
 export default function Home() {
   const { data, isloading, error } = useFetch("https://swapi.dev/api/films/");
+
   if (isloading) return <div className="Character_loading">loading...</div>;
   if (error) return <div className="Home_error">{error}</div>;
 
