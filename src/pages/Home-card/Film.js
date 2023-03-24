@@ -1,13 +1,12 @@
 import React from "react";
+import useSwr from "swr";
 import { useParams } from "react-router-dom";
-import useFetch from "../Home/useFetch";
+
 import "./Film.css";
 
 function Film() {
   const { id } = useParams();
-  const { data, isloading, error } = useFetch(
-    `https://swapi.dev/api/films/${id}`
-  );
+  const { data, isloading, error } = useSwr(`api/films/${id}`, fetch);
 
   if (isloading) return <div className="Home_loading">loading...</div>;
   if (error) return <div className="Home_error">{error}</div>;

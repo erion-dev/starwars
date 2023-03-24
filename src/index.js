@@ -1,56 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Starships from "./pages/Starships/Starships";
-import Character from "./pages/Character/Character";
-import Planets from "./pages/Planets/Planets";
-import Home from "./pages/Home/Home";
-import Film from "./pages/Home-card/Film";
-import Login from "./pages/Login";
+
+import { UserProvider } from "./UserContextProvider";
+import { PublicRoutes } from "./PublicRoutes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "starships",
-        element: <Starships />,
-      },
-      {
-        path: "character",
-        element: <Character />,
-      },
-      {
-        path: "planets",
-        element: <Planets />,
-      },
-
-      {
-        path: "film/:id",
-        element: <Film />,
-      },
-      {
-        path: "login",
-        element: <Login />,
-      },
-    ],
-  },
-]);
-
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <PublicRoutes />
+    </UserProvider>
   </React.StrictMode>
 );
 
