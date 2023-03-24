@@ -1,38 +1,31 @@
 import { Button, Container, Input, VStack, chakra } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import NavLink from "../../components/Card/NavLink";
 import { useUserContext } from "../../UserContextProvider";
-import "./login.css";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup.object().shape({
+  username: yup.string().required(),
+  password: yup.string().required(),
+});
 
 function Login() {
   const userCtx = useUserContext();
-  const initialValues = { username: "", password: "" };
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    userCtx.setUser(formValues);
-    setFormErrors(validate(formValues));
-  };
+  const onSubmit = handleSubmit((data) => {
+    userCtx.setUser(data);
+  });
 
-  const validate = (values) => {
-    const errors = {};
-    if (!values.username) {
-      errors.username = "Username is Required";
-    }
-    if (!values.password) {
-      errors.password = "Password is Required";
-    } else if (values.password < 4) {
-      errors.password = "Password must be more than 4 characters ";
-    }
-    return errors;
-  };
   return (
     <Container
       m="auto"
@@ -44,7 +37,7 @@ function Login() {
       w="400px"
       mt="30px"
     >
-      <chakra.form onSubmit={handleSubmit}>
+      <chakra.form onSubmit={onSubmit}>
         <Input
           h="50px"
           w="300px"
@@ -54,11 +47,12 @@ function Login() {
           fontSize="15px"
           type="text"
           name="username"
-          value={formValues.username}
-          onChange={handleChange}
           placeholder="Username"
+          {...register("username", {
+            required: { value: true, message: "This is Required" },
+          })}
         />
-        <Container className="error_msg">{formErrors.username}</Container>
+        {<div className="error_msg">{errors.username}</div>}
         <Input
           h="50px"
           w="300px"
@@ -68,11 +62,12 @@ function Login() {
           fontSize="15px"
           type="password"
           name="password"
-          value={formValues.password}
-          onChange={handleChange}
           placeholder="Password"
+          {...register("password", {
+            required: { value: 5, message: "Must be more than 5" },
+          })}
         />
-        <Container className="error_msg">{formErrors.password}</Container>
+        {<div className="error_msg">{errors.password}</div>}
         <VStack>
           <Button
             fontSize="20px"

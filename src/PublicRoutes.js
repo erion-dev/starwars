@@ -58,7 +58,6 @@ const publicRoutes = createBrowserRouter([
 
 export const PublicRoutes = () => {
   const authContext = useUserContext();
-  console.log(authContext.user?.username, "username");
   return (
     <RouterProvider
       router={authContext.user?.username ? router : publicRoutes}

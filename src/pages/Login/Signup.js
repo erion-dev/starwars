@@ -7,15 +7,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import "./login.css";
 
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  username: yup.string().required(),
+  password: yup.string().min(4).max(10).required(),
+});
 function Signup() {
   const navigate = useNavigate();
   const { setUser } = useUserContext();
-
-  const schema = yup.object().shape({
-    email: yup.string().email().required(),
-    username: yup.string().required(),
-    password: yup.string().min(4).max(10).required(),
-  });
 
   const {
     register,
@@ -24,13 +23,13 @@ function Signup() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  console.log(errors);
+
   return (
     <div className="Signup">
       <form
         className="Signup_form"
-        onSubmit={handleSubmit((user) => {
-          setUser(user);
+        onSubmit={handleSubmit((data) => {
+          setUser(data);
           navigate("/login ");
         })}
       >
@@ -41,7 +40,7 @@ function Signup() {
           })}
           placeholder="Email"
         />
-        <div className="error_msg"></div>
+        <div></div>
         <input
           className="Signup_username"
           {...register("username", {
@@ -49,7 +48,7 @@ function Signup() {
           })}
           placeholder="Username"
         />
-        <div className="error_msg"></div>
+        <div></div>
         <input
           className="Signup_password"
           {...register("password", {
@@ -58,7 +57,7 @@ function Signup() {
           type="password"
           placeholder="Password"
         />
-        {/* <div className="error_msg">{formErrors.password}</div> */}
+        {<div className="error_msg">{errors.password}</div>}
         <button className="Signup_button" type="submit">
           Login
         </button>
