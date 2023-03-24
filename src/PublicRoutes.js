@@ -11,56 +11,56 @@ import { useUserContext } from "./UserContextProvider";
 import Signup from "./pages/Login/Signup";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "starships",
-        element: <Starships />,
-      },
-      {
-        path: "character",
-        element: <Character />,
-      },
-      {
-        path: "planets",
-        element: <Planets />,
-      },
+	{
+		path: "/",
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "starships",
+				element: <Starships />,
+			},
+			{
+				path: "characters",
+				element: <Character />,
+			},
+			{
+				path: "planets",
+				element: <Planets />,
+			},
 
-      {
-        path: "film/:id",
-        element: <Film />,
-      },
-    ],
-  },
+			{
+				path: "film/:id",
+				element: <Film />,
+			},
+		],
+	},
 ]);
 const publicRoutes = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <Login />,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
-      },
-    ],
-  },
+	{
+		path: "/",
+		element: <App />,
+		children: [
+			{
+				path: "/",
+				element: <Login />,
+			},
+			{
+				path: "/signup",
+				element: <Signup />,
+			},
+		],
+	},
 ]);
 
 export const PublicRoutes = () => {
-  const authContext = useUserContext();
-  return (
-    <RouterProvider
-      router={authContext.user?.username ? router : publicRoutes}
-    />
-  );
+	const authContext = useUserContext();
+	return (
+		<RouterProvider
+			router={authContext.user?.username ? router : publicRoutes}
+		/>
+	);
 };
