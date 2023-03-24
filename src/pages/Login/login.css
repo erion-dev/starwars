@@ -1,0 +1,55 @@
+.Signup {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: auto;
+  background: black;
+  max-width: 400px;
+  min-width: auto;
+  height: 300px;
+  margin-top: 50px;
+}
+.Signup_form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Signup_username {
+  width: 150px;
+  color: black;
+  font-size: 15px;
+  align-self: center;
+  width: 300px;
+  height: 50px;
+  border: none;
+}
+.Signup_password {
+  align-self: center;
+  margin-top: 15px;
+  color: black;
+  font-size: 15px;
+  width: 300px;
+  height: 50px;
+  border: none;
+}
+.Signup_button {
+  cursor: pointer;
+  border: none;
+  transition-duration: 0.4s;
+}
+.Signup_button:hover {
+  background-color: rgb(77, 76, 76);
+  color: white;
+}
+
+.Signup_email {
+  margin-bottom: 15px;
+  width: 150px;
+  color: black;
+  font-size: 15px;
+  align-self: center;
+  width: 300px;
+  height: 50px;
+  border: none;
+}
